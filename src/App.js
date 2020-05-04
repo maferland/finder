@@ -1,11 +1,24 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Home from './page/Home';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Finder</h1>
-    </div>
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
