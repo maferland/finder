@@ -5,7 +5,7 @@ import Home from './page/Home';
 
 const App = () => {
   const netlifyIdentity = window.netlifyIdentity;
-  const [user, setUser] = React.useState(netlifyIdentity.currentUser());
+  const [user, setUser] = React.useState(() => netlifyIdentity.currentUser());
   netlifyIdentity.on('login', user => setUser(user));
   netlifyIdentity.on('logout', () => setUser(null));
   return (
@@ -20,7 +20,7 @@ const App = () => {
       </nav>
       <Switch>
         <Route path="/">
-          <Home />
+          <Home user={user} />
         </Route>
       </Switch>
     </Router>

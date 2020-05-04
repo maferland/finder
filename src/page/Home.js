@@ -1,5 +1,9 @@
 import React from "react";
+import Hello from '../component/Hello';
+import LoginMessage from '../component/LoginMessage';
 
-const Home = () => <h1>Home</h1>;
+const Home = (props) => {
+  return <>{props.user ? <Hello user={props.user} /> : <LoginMessage /> }</>
+};
 
 export default Home;
