@@ -4,6 +4,10 @@ import "./App.css";
 import Home from './page/Home';
 
 const App = () => {
+  const netlifyIdentity = window.netlifyIdentity;
+  const [user, setUser] = React.useState(netlifyIdentity.currentUser());
+  netlifyIdentity.on('login', user => setUser(user));
+  netlifyIdentity.on('logout', () => setUser(null));
   return (
     <Router>
       <nav>
@@ -11,6 +15,7 @@ const App = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <li data-netlify-identity-button></li>
         </ul>
       </nav>
       <Switch>
