@@ -3,7 +3,7 @@
 [build]
   # Directory to change to before starting a build.
   # This is where we will look for package.json/.nvmrc/etc.
-  base = "src/"
+  base = "./"
   
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "src/functions/"
