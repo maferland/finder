@@ -10,7 +10,12 @@ const MapContainer = () => {
   const position = [state.lat, state.lng];
   return (
     <Map
-      style={{ width: "100%", height: "100vh" }}
+      style={{
+        width: "100%",
+        height: "100vh",
+        position: "relative",
+        zIndex: 1,
+      }}
       center={position}
       zoom={state.zoom}
     >
