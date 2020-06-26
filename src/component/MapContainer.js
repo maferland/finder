@@ -16,6 +16,7 @@ const MapContainer = ({ user }) => {
     zoom: 4,
   };
   const position = [state.lat, state.lng];
+  if (markers) { }
   return (
     <Map
       style={{
