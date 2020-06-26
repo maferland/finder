@@ -1,7 +1,15 @@
 import React from "react";
 import { Map, TileLayer } from "react-leaflet";
+import { fetchMarkers } from '../util/Api.js';
 
-const MapContainer = () => {
+const MapContainer = ({ user }) => {
+  const [markers, setMarkers] = React.useState([]);
+  React.useEffect(() => {
+    fetchMarkers(user).then(markers => { 
+      setMarkers(markers)
+    }).catch(r => console.log(r));
+  }, [setMarkers, user]);
+
   const state = {
     lat: 51.505,
     lng: -0.09,
