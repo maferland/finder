@@ -27,4 +27,9 @@ const fetchMarkers = async (user) => {
     })
 }
 
-export {fetchMarkers}
+const updateMarker = async (user, geolocation) => {
+  const options = await generateOptions(user, 'post', geolocation)
+  return fetch(`${API_URL}/update-marker`, options).then((r) => r.json())
+}
+
+export {updateMarker, fetchMarkers}
